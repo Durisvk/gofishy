@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/jquery.min.js"></script>
+  <meta property=”og:title” content=”Seascape Multiplayer Online game”/>
+  <meta property=”og:type” content=”game”/>
+  <meta name="keywords" content="gofishy gofishy.io seascape online multiplayer game sea io iogames games">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+  <link rel=”author” href=”https://plus.google.com/u/0/102529474758204850031”/>
+  <link rel=”publisher” href=”https://plus.google.com/114468830044417008010”/>
+  <meta name=”twitter:card” content=”Online Multiplayer game”>
+  <meta name=”twitter:description” content=”Online multiplayer survival game where larger wins”>
+
+  <meta property=”og:description” content=”Online multiplayer survival game where larger wins”/>
+  <title>GoFishy.io | Online Multiplayer Game</title>
+
+  <script src="js/ads.js"></script>
+  <link rel="icon" type="image/png" href="../resources/images/icon.png" />
+
+  <!--
+  <script type="text/javascript">
+    window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='//rec.getsmartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', 'b3d264a7285a1d6398efe9cac6717883d57d3a2d');
+  </script>
+  -->
+  <!--<script data-cfasync="false" src="//dr3k6qonw2kee.cloudfront.net/?oqkrd=609854"></script>-->
+
+</head>
+<body><!-- oncontextmenu="return false;"> -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/sk_SK/sdk.js#xfbml=1&version=v2.7&appId=572774096165969";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <img id="sound" src="../resources/images/sound-on.png">
+  <div class="container">
+    <div class="best-scores">
+      <table id="best-scores"></table>
+    </div>
+    <canvas id="canvas"></canvas>
+    <canvas id="logo" width="500" height="150"></canvas>
+    <div class="score">
+    </div>
+  </div>
+
+  <div id="select">
+    <div class="questionmark">
+      ?
+    </div>
+    <input type="text" id="name" maxlength="15" placeholder="Enter your name..."><br>
+    <table>
+      <tr>
+        <td>
+          <img src="./resources/images/shark_thumbnail.png" data-type="shark" title="is growing 20% slower but is faster" />
+          <a href="#" data-type="shark" title="is growing 20% slower but is faster">Shark</a>
+        </td>
+        <td>
+          <img src="./resources/images/fish_thumbnail.png" data-type="fish" title="normal speed normal rules" />
+          <a href="#" data-type="fish" title="normal speed normal rules">Fish</a>
+        </td>
+        <td>
+          <img src="./resources/images/spiky_thumbnail.png" data-type="spiky" title="is growing 20% faster but is slower" />
+          <a href="#" data-type="spiky" title="is growing 20% faster but is slower">Spiky</a>
+        </td>
+      </tr>
+    </table>
+      <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=GoFishy Online Multiplayer Survival Game | "
+      data-size="large">
+    Tweet</a>
+    <div class="fb-share-button" data-href="http://gofishy.io" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgofishy.io%2F&amp;src=sdkpreparse">Zdieľať</a></div>
+    <!-- Umiestnite túto značku do hlavičky alebo tesne pred uzatváraciu značku tela. -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+      {lang: 'sk'}
+    </script>
+
+    <!-- Umiestnite túto značku tam, kde sa má vykresliť miniaplikácia tlačidlo zdieľania. -->
+    <div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-href="http://gofishy.io"></div>
+
+      <br>
+      <br>
+      <b>Select a world type:</b>
+      <br><br><br>
+      <a class="button">Classic</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="button" id="bonus-button">Bonus</a>
+    </div>
+
+    <div class="help">
+      <table>
+        <tr>
+          <td></td>
+          <td>
+            Welcome to the GoFishy.io. Your task is to eat food,<br>
+            gain mass and kill smaller fishes.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./resources/images/shark_thumbnail.png" />
+          </td>
+          <td>
+            The shark will grow slower but is moving faster.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./resources/images/spiky_thumbnail.png" />
+          </td>
+          <td>
+            The spiky is growing faster but is slower.
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            In bonus world there are runes which <br>
+            can modify your speed and size.
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  <div id="stats">
+    <h3>Stats:</h3>
+    <br>
+    <table>
+      <tr>
+        <td><b>Time Alive:</b> <span id="timeAlive">0</span> seconds</td>
+        <td><b>Kills:</b> <span id="kills">0</span></td>
+      </tr>
+      <tr>
+        <td><b>Final Score:</b> <span id="finalScore">0</span></td>
+        <td><b>Food Eaten:</b> <span id="foodEaten">0</span></td>
+      </tr>
+    </table>
+    <div id="ad">
+      <script type="text/javascript">
+      sa_client = "2ffbcbcc3ab11f8469fa02ff170a8feb";
+      sa_code = "a191b7d3dcf928e5a9f179ed0d033180";
+      sa_protocol = ("https:"==document.location.protocol)?"https":"http";
+      sa_pline = "0";
+      sa_maxads = "1";
+      sa_bgcolor = "FFFFFF";
+      sa_bordercolor = "24B9BB";
+      sa_superbordercolor = "0EDCF5";
+      sa_linkcolor = "001EB5";
+      sa_desccolor = "000000";
+      sa_urlcolor = "006183";
+      sa_b = "1";
+      sa_format = "rect_180x150";
+      sa_width = "180";
+      sa_height = "150";
+      sa_location = "0";
+      sa_radius = "6";
+      sa_borderwidth = "1";
+      sa_font = "1";
+      document.write(unescape("%3cscript type='text/javascript' src='"+sa_protocol+"://sa.entireweb.com/sense2.js'%3e%3c/script%3e"));
+      </script>
+    </div>
+  </div>
+
+  <div id="left-sidebar">
+    <script type="text/javascript">
+    sa_client = "2ffbcbcc3ab11f8469fa02ff170a8feb";
+    sa_code = "3e16bcf8ec79c97d4aa1560dc4efcffc";
+    sa_protocol = ("https:"==document.location.protocol)?"https":"http";
+    sa_pline = "0";
+    sa_maxads = "1";
+    sa_bgcolor = "FFFFFF";
+    sa_bordercolor = "BDD631";
+    sa_superbordercolor = "BDD631";
+    sa_linkcolor = "001EB5";
+    sa_desccolor = "000000";
+    sa_urlcolor = "788300";
+    sa_b = "0";
+    sa_format = "banner_234x60";
+    sa_width = "234";
+    sa_height = "60";
+    sa_location = "0";
+    sa_radius = "0";
+    sa_borderwidth = "1";
+    sa_font = "0";
+    document.write(unescape("%3cscript type='text/javascript' src='"+sa_protocol+"://sa.entireweb.com/sense2.js'%3e%3c/script%3e"));
+    </script>
+  </div>
+
+  <div id="right-sidebar">
+    <script type="text/javascript">
+    sa_client = "2ffbcbcc3ab11f8469fa02ff170a8feb";
+    sa_code = "72109fe872ba809c0736ddc0a688749a";
+    sa_protocol = ("https:"==document.location.protocol)?"https":"http";
+    sa_pline = "0";
+    sa_maxads = "1";
+    sa_bgcolor = "FFFFFF";
+    sa_bordercolor = "BDD631";
+    sa_superbordercolor = "BDD631";
+    sa_linkcolor = "001EB5";
+    sa_desccolor = "000000";
+    sa_urlcolor = "788300";
+    sa_b = "0";
+    sa_format = "banner_234x60";
+    sa_width = "234";
+    sa_height = "60";
+    sa_location = "0";
+    sa_radius = "4";
+    sa_borderwidth = "1";
+    sa_font = "0";
+    document.write(unescape("%3cscript type='text/javascript' src='"+sa_protocol+"://sa.entireweb.com/sense2.js'%3e%3c/script%3e"));
+    </script>
+
+
+  </div>
+
+  <div id="footer">
+  </div>
+</body>
+  <script type="text/javascript">
+  /*if(typeof window.canRunAds == 'undefined'){
+    $('body').html("<h2 class='message'>Turn off Your AdBlock Please...</h2>")
+  }*/
+  </script>
+
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+
+  <script src="common/common.min.js"></script>
+  <script src="js/js.min.js"></script>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "GoFishy.io",
+  "description": "An online multiplayer survival game.",
+  "version": "1.0.0",
+  "author": "Juraj Carnogursky <durisvk2@gmail.com>",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.6",
+    "ws": "^1.1.0"
+  },
+  "devDependencies": {
+    "express-device": "^0.4.2"
+  }
+}

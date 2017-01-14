@@ -1,0 +1,255 @@
+body {
+  font-family: Arial, Helvetica, sans-serif
+}
+a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Impact, Charcoal, sans-serif
+}
+
+canvas#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("../resources/images/background.png");
+  background-size: cover;
+}
+
+canvas#logo {
+  position: absolute;
+  border-radius: 10px;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: 20px;
+}
+
+div#select {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  background-color: #4DADFF;
+  margin-left: -200px;
+  margin-top: -125px;
+  border: 1px solid #585858;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+}
+
+div#select input[type="text"] {
+  margin-bottom: 35px;
+  font-size: 20px;
+  background-color: #5CD2FF;
+  border: 1px solid #464646;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+}
+
+div#select select#worldType {
+  background-color: #5CD2FF;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 5px;
+  border: 1px solid #3C3C3C;
+}
+
+div#select table tr td img {
+  width: 100px;
+  cursor: pointer;
+}
+
+div#select table tr td img.selected {
+  background-color: #8BBDE8;
+  border-radius: 10px;
+  border: 2px solid #fff;
+}
+div#select a.button {
+  border: 1px solid #005AFF;
+  padding: 5px;
+  background-color: #0070FB;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+div#select a.button:hover {
+  background-color: #348EFF;
+}
+
+div#select .questionmark {
+  position: absolute;
+  right: 22px;
+  margin-top: -5px;
+  background: #2DD9EB;
+  padding: 5px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  border: 1px solid #595B5D;
+}
+
+div#select .questionmark:hover {
+  background: #64DCE8;
+}
+
+div.help {
+  display: none;
+  background-color: #4DADFF;
+  position: absolute;
+  padding: 20px;
+  z-index: 120;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid #5D5D5D;;
+}
+
+div.help img {
+  width: 180px;
+}
+
+div.score {
+  display:none;
+  position: absolute;
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+  padding-top: 20px;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(86, 86, 86, 0.5);
+  color: #fff;
+  border-top-right-radius: 15px;
+  text-align: center;
+  font-size: 18px;
+}
+
+div.best-scores {
+  display:none;
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(37, 37, 37, 0.5);
+  z-index: 100;
+  color: #fff;
+  font-weight: bold;
+  font-size: 11px;
+  border-bottom-left-radius: 30px;
+}
+
+table#best-scores td {
+    width: 80px;
+}
+
+tr.green-text {
+  color: #00FC00;
+}
+
+h2.message {
+  left: 50%;
+  position: absolute;
+  margin-left: -180px;
+  font-size: 24px;
+  margin-top: 50px;
+  background-color: #404040;
+  padding: 20px;
+  color: #fff;
+  border-radius: 11px;
+}
+
+div#footer {
+  width: 500px;
+  height: 10px;
+  position: absolute;
+  background-color: #4DADFF;
+  border: 1px solid #000;
+  bottom: 0;
+  left: 50%;
+  margin-left: -250px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+img#sound {
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  display: none;
+}
+
+div#stats {
+  width: 500px;
+  height: 360px;
+  background-color: #4DADFF;
+  border: 1px solid #737373;
+  position: absolute;
+  color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -128px;
+  padding-top: 0px;
+  display: none;
+}
+
+div#stats div#ad {
+  margin-top: 15px;
+  margin-left: 150px;
+}
+
+div#stats table {
+    margin-left: 60px;
+}
+
+div#stats table td {
+  padding: 20px;
+  border: 1px solid #697986;
+}
+
+div#left-sidebar {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  background-color: #2EC6D6;
+  width: 240px;
+  left: 0;
+  top: 50%;
+  margin-top: -30px;
+  border-radius: 10px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #868686;
+}
+
+div#right-sidebar {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  background-color: #2EC6D6;
+  width: 240px;
+  right: 0px;
+  top: 50%;
+  margin-top: -30px;
+  border-radius: 10px;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid #868686;
+}
+
+div.fb-share-button {
+    margin-top: 6px;
+}
